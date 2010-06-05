@@ -20,14 +20,14 @@ class Acao
   
   #metodo que retorna um vetor com todas as acoes cadastradas
   def Acao.get_all
-    return YAML.load_file("actions.yml")
+    return YAML.load_file(".actions.yml")
   end
   
   #metodo que cria o arquivo actions.yml e escreve as acoes padrao
   def Acao.write_default
     acao_halt = Acao.new("Desligar o computador","halt")
     acao_reboot = Acao.new("Reiniciar o computador","reboot")
-    File.open("actions.yml","w") do |f|
+    File.open(".actions.yml","w") do |f|
       YAML.dump([acao_halt,acao_reboot],f)
     end
   end
@@ -89,7 +89,7 @@ class Acao
   # metodo responsavel pro reescrever todo o arquivo com o nome vetor
   # de acoes recebido por parametro
   def Acao.rewrite_file(actions_array)    
-    File.open("actions.yml","w") do |f|
+    File.open(".actions.yml","w") do |f|
        YAML.dump(actions_array,f)
     end    
   end

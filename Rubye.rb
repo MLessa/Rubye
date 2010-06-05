@@ -31,7 +31,7 @@ class RubyeGlade
     @builder = Gtk::Builder.new
     @builder.add_from_file(glade_xml)
     @builder.connect_signals {|handler| method(handler) }     
-    system("gksu -D 'Rubye' ''")      
+    #system("gksu -D 'Rubye' ''")      
     load_widgets()    
     @timer= Thread.new {Thread.stop}    
     on_btnAtualTime_clicked(nil)      
@@ -67,7 +67,7 @@ class RubyeGlade
   # metodo que checa se o arquivo actions.yml existe e caso nao exista
   # chama o metodo write_default para escreve-lo
   def check_file()    
-    if File.zero?("actions.yml") || !File.exist?("actions.yml")
+    if File.zero?(".actions.yml") || !File.exist?(".actions.yml")
       Acao.write_default()
     end 
   end  
