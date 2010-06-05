@@ -532,6 +532,16 @@ junto com este programa; se n&#xE3;o, escreva para a Free Software Foundation, I
                         <property name="position">1</property>
                       </packing>
                     </child>
+                    <child>
+                      <object class="GtkLabel" id="label16">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">&lt;b&gt;Digite apenas o comando.Inserir 'sudo' n&#xE3;o &#xE9; necess&#xE1;rio&lt;/b&gt;</property>
+                        <property name="use_markup">True</property>
+                      </object>
+                      <packing>
+                        <property name="position">2</property>
+                      </packing>
+                    </child>
                   </object>
                 </child>
               </object>
