@@ -27,7 +27,7 @@ ATENÇÃO!Usuario de KDE devem substituir a linha system("gksu -D 'Rubye' ''")
 por system("kdesu -D 'Rubye' ''") para que a aplicação funcione.
 
 Faça o download do programa em:
- - asd
+ - http://github.com/MLessa/Rubye/downloads
 
 Para instalar, descompacte o arquivo em qualquer pasta, mantendo os arquivos descompactados na
 mesma pasta e execute o arquivo Rubye
