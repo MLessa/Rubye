@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>set_actionStatus (RubyeGlade)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File Rubye.rb, line 233</span>
+ <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">set_actionStatus</span>(<span class="ruby-identifier">set</span>=<span class="ruby-keyword kw">true</span>)
+   <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">set</span>
+     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@cmbModo</span>.<span class="ruby-identifier">active</span>().<span class="ruby-identifier">to_i</span><span class="ruby-operator">==</span><span class="ruby-value">0</span>
+         <span class="ruby-comment cmt"># funcao sprintf usada apenas para formatar o valor das horas e minutos</span>
+          <span class="ruby-ivar">@lblTempo</span>.<span class="ruby-identifier">set_label</span>(<span class="ruby-node">&quot;#{@calendar.day}/#{@calendar.month}/#{@calendar.year} às #{sprintf(&quot;%02d&quot;,@spinHora.value.to_i)}:#{sprintf(&quot;%02d&quot;,@spinMinuto.value.to_i)}&quot;</span>)
+     <span class="ruby-keyword kw">else</span>
+          <span class="ruby-comment cmt"># IMPLEMENTAR contador regressivo em Thread para exibir o tempo restante</span>
+          <span class="ruby-ivar">@lblTempo</span>.<span class="ruby-identifier">set_label</span>(<span class="ruby-node">&quot;#{@spinHora.value.to_i} hora(s) e #{@spinMinuto.value.to_i} minuto(s)&quot;</span>)
+     <span class="ruby-keyword kw">end</span>  
+   <span class="ruby-keyword kw">else</span>
+     <span class="ruby-ivar">@lblTempo</span>.<span class="ruby-identifier">set_label</span>(<span class="ruby-value str">&quot;&quot;</span>)
+   <span class="ruby-keyword kw">end</span>
+ <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

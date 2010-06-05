@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (RubyeGlade)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File Rubye.rb, line 30</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">glade_xml</span>)    
+    <span class="ruby-ivar">@builder</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Builder</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-ivar">@builder</span>.<span class="ruby-identifier">add_from_file</span>(<span class="ruby-identifier">glade_xml</span>)
+    <span class="ruby-ivar">@builder</span>.<span class="ruby-identifier">connect_signals</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">handler</span><span class="ruby-operator">|</span> <span class="ruby-identifier">method</span>(<span class="ruby-identifier">handler</span>) }     
+    <span class="ruby-identifier">system</span>(<span class="ruby-value str">&quot;gksu -D 'Rubye' ''&quot;</span>)      
+    <span class="ruby-identifier">load_widgets</span>()    
+    <span class="ruby-ivar">@timer</span>= <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> {<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">stop</span>}    
+    <span class="ruby-identifier">on_btnAtualTime_clicked</span>(<span class="ruby-keyword kw">nil</span>)      
+    <span class="ruby-ivar">@mainWindow</span>.<span class="ruby-identifier">show_all</span>       
+    <span class="ruby-identifier">check_file</span>()   
+    <span class="ruby-constant">Acao</span>.<span class="ruby-identifier">load_combo_actions</span>(<span class="ruby-ivar">@cmbAcao</span>)   
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

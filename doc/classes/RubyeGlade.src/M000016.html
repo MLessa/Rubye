@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>on_altAcao_toggled (RubyeGlade)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File Rubye.rb, line 93</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_altAcao_toggled</span>(<span class="ruby-identifier">widget</span>)    
+    <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@altAcao</span>.<span class="ruby-identifier">active?</span>      
+      <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">validData?</span>
+           <span class="ruby-ivar">@errorDialog</span>.<span class="ruby-identifier">show_all</span>
+           <span class="ruby-ivar">@altAcao</span>.<span class="ruby-identifier">set_active</span>(<span class="ruby-keyword kw">false</span>)
+        <span class="ruby-keyword kw">else</span>          
+          <span class="ruby-identifier">set_actionStatus</span>()
+          <span class="ruby-comment cmt"># Intância de Timer recebendo os parametros de desligamento. </span>
+          <span class="ruby-comment cmt">#P.S: usa-se @calendar.month+1 pois o widget interpreta janeiro=0, fevereiro=1 e assim suscessivamente</span>
+          <span class="ruby-ivar">@timer</span> = <span class="ruby-constant">Timer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@calendar</span>.<span class="ruby-identifier">year</span>,<span class="ruby-ivar">@calendar</span>.<span class="ruby-identifier">month</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>,<span class="ruby-ivar">@calendar</span>.<span class="ruby-identifier">day</span>,<span class="ruby-ivar">@spinHora</span>.<span class="ruby-identifier">value</span>,<span class="ruby-ivar">@spinMinuto</span>.<span class="ruby-identifier">value</span>,<span class="ruby-ivar">@cmbModo</span>.<span class="ruby-identifier">active</span>().<span class="ruby-identifier">to_i</span>,<span class="ruby-identifier">find_command</span>(<span class="ruby-ivar">@cmbAcao</span>))      
+          <span class="ruby-ivar">@timer</span>.<span class="ruby-identifier">run</span>
+          <span class="ruby-identifier">set_DisabledControls</span>
+          <span class="ruby-ivar">@altAcao</span>.<span class="ruby-identifier">set_label</span>(<span class="ruby-value str">&quot;Parar&quot;</span>)         
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">else</span>     
+      <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@timer</span>.<span class="ruby-identifier">alive?</span>
+         <span class="ruby-ivar">@timer</span>.<span class="ruby-identifier">terminate!</span>
+      <span class="ruby-keyword kw">end</span>
+       <span class="ruby-identifier">set_EnableControls</span>(<span class="ruby-ivar">@cmbModo</span>.<span class="ruby-identifier">active</span>().<span class="ruby-identifier">to_i</span>)       
+       <span class="ruby-ivar">@altAcao</span>.<span class="ruby-identifier">set_label</span>(<span class="ruby-value str">&quot;Começar&quot;</span>)
+       <span class="ruby-identifier">set_actionStatus</span>(<span class="ruby-keyword kw">false</span>)
+       
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

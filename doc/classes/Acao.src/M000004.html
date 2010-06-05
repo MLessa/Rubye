@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>load_combo_actions (Acao)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File Acao.rb, line 37</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-constant">Acao</span>.<span class="ruby-identifier">load_combo_actions</span>(<span class="ruby-identifier">comboBox</span>)
+    <span class="ruby-identifier">actions_array</span> = <span class="ruby-constant">Acao</span>.<span class="ruby-identifier">get_all</span>
+    (<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-identifier">actions_array</span>.<span class="ruby-identifier">length</span>).<span class="ruby-identifier">each</span> {<span class="ruby-identifier">comboBox</span>.<span class="ruby-identifier">remove_text</span>(<span class="ruby-value">0</span>)}
+    <span class="ruby-identifier">actions_array</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">acao</span><span class="ruby-operator">|</span> <span class="ruby-identifier">comboBox</span>.<span class="ruby-identifier">append_text</span>(<span class="ruby-identifier">acao</span>.<span class="ruby-identifier">nome</span>)}
+    <span class="ruby-identifier">comboBox</span>.<span class="ruby-identifier">set_active</span>(<span class="ruby-value">0</span>)
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

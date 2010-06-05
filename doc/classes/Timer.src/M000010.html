@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (Timer)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File Timer.rb, line 14</span>
+<span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span> (<span class="ruby-identifier">ano</span>,<span class="ruby-identifier">mes</span>,<span class="ruby-identifier">dia</span>,<span class="ruby-identifier">hora</span>,<span class="ruby-identifier">minuto</span>,<span class="ruby-identifier">modo</span>,<span class="ruby-identifier">comando</span>)  
+<span class="ruby-ivar">@ano</span> = <span class="ruby-identifier">ano</span>.<span class="ruby-identifier">to_i</span>
+<span class="ruby-ivar">@mes</span> = <span class="ruby-identifier">mes</span>.<span class="ruby-identifier">to_i</span>
+<span class="ruby-ivar">@dia</span> = <span class="ruby-identifier">dia</span>.<span class="ruby-identifier">to_i</span>
+<span class="ruby-ivar">@hora</span> = <span class="ruby-identifier">hora</span>.<span class="ruby-identifier">to_i</span>
+<span class="ruby-ivar">@minuto</span> = <span class="ruby-identifier">minuto</span>.<span class="ruby-identifier">to_i</span>
+<span class="ruby-ivar">@comando</span> = <span class="ruby-identifier">comando</span>.<span class="ruby-identifier">to_s</span>
+
+<span class="ruby-comment cmt"># Quando modo=0 o usuario selecionou um dia e uma hora para a execucao da acao</span>
+<span class="ruby-comment cmt"># Quando modo=1 o usuario escolheu executar a acao apos tempo determinado</span>
+
+<span class="ruby-comment cmt">#&lt;comment&gt;</span>
+<span class="ruby-comment cmt"># Tudo bem, a rotina que controla quando a acao sera executada está </span>
+<span class="ruby-comment cmt"># esteticamente horrorosa, porém foi a melhor maneira que eu encontrei</span>
+<span class="ruby-comment cmt"># pra econimizar memoria.Caso alguém saiba como implementar isso de melhor</span>
+<span class="ruby-comment cmt"># maneira será MUITO bem vindo</span>
+<span class="ruby-comment cmt">#&lt;/comment&gt;</span>
+ 
+  
+  <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">modo</span>
+    <span class="ruby-keyword kw">when</span> <span class="ruby-value">0</span>
+      <span class="ruby-keyword kw">super</span> <span class="ruby-keyword kw">do</span>
+          <span class="ruby-identifier">exec</span>=<span class="ruby-keyword kw">false</span>      
+          <span class="ruby-keyword kw">while</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">year</span> <span class="ruby-operator">!=</span> <span class="ruby-ivar">@ano</span>
+           <span class="ruby-identifier">sleep</span> <span class="ruby-value">1</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">while</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">year</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@ano</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">exec</span> 
+            <span class="ruby-keyword kw">while</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">month</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@mes</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">exec</span>
+              <span class="ruby-keyword kw">while</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">day</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@dia</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">exec</span>
+               <span class="ruby-keyword kw">while</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">hour</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@hora</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">exec</span> 
+                <span class="ruby-keyword kw">while</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">min</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@minuto</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">exec</span>
+                  <span class="ruby-identifier">system</span> <span class="ruby-node">&quot;sudo #{@comando}&quot;</span>         
+                  <span class="ruby-identifier">exec</span> = <span class="ruby-keyword kw">true</span>              
+                <span class="ruby-keyword kw">end</span>             
+                <span class="ruby-identifier">sleep</span> <span class="ruby-value">1</span>
+               <span class="ruby-keyword kw">end</span>            
+              <span class="ruby-identifier">sleep</span> <span class="ruby-value">1</span>
+              <span class="ruby-keyword kw">end</span>
+             <span class="ruby-identifier">sleep</span> <span class="ruby-value">1</span>
+             <span class="ruby-keyword kw">end</span> 
+            <span class="ruby-identifier">sleep</span> <span class="ruby-value">1</span>   
+           <span class="ruby-keyword kw">end</span>    
+      <span class="ruby-keyword kw">end</span>          
+  <span class="ruby-keyword kw">when</span> <span class="ruby-value">1</span>  
+      <span class="ruby-keyword kw">super</span> <span class="ruby-keyword kw">do</span>
+        <span class="ruby-identifier">timeInSeconds</span> = <span class="ruby-ivar">@hora</span><span class="ruby-operator">*</span><span class="ruby-value">3600</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@minuto</span><span class="ruby-operator">*</span><span class="ruby-value">60</span> 
+        <span class="ruby-identifier">control</span>=<span class="ruby-value">0</span>
+        <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">control</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">timeInSeconds</span>
+          <span class="ruby-identifier">sleep</span> <span class="ruby-value">1</span>
+          <span class="ruby-identifier">control</span><span class="ruby-operator">+=</span><span class="ruby-value">1</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-identifier">system</span> <span class="ruby-node">&quot;sudo #{@comando}&quot;</span>
+     <span class="ruby-keyword kw">end</span>  
+<span class="ruby-keyword kw">end</span>
+  
+<span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,36 @@
+________________________________________________________________________________
+
+                 Rubye - Agendador do ações escrito em Ruby
+________________________________________________________________________________
+
+Autor: Matheus Lessa <mlessadev@gmail.com>
+Versão 0.1alpha
+
+Para informações sobre licenciamento veja o arquivo COPYING.
+________________________________________________________________________________
+
+§ 1. O que é?
+
+O Rubye é um genrenciador de ações escrito em Ruby com GUI em Gtk que lhe permi-
+te agendar,criar e administrar ações quaisquer que você deseje. O aplicativo com
+uma interface gráfica bastante simplificada melhorando assim a usabilidade.
+________________________________________________________________________________
+
+§ 2. Como utilizar?
+
+Para utilizar o Rubye é necessario ter o Ruby (<=versão 1.8.x) instalado além de
+ter também instalado o ruby-gnome2 que pode ser obtido no seguinte endereço:
+
+- http://ruby-gnome2.sourceforge.jp/
+
+ATENÇÃO!Usuario de KDE devem substituir a linha system("gksu -D 'Rubye' ''") 
+por system("kdesu -D 'Rubye' ''") para que a aplicação funcione.
+
+Faça o download do programa em:
+ - asd
+
+Para instalar, descompacte o arquivo em qualquer pasta, mantendo os arquivos descompactados na
+mesma pasta e execute o arquivo Rubye
+________________________________________________________________________________
+
+
