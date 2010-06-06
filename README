@@ -4,7 +4,7 @@ ________________________________________________________________________________
 ________________________________________________________________________________
 
 Autor: Matheus Lessa <mlessadev@gmail.com>
-Versão 0.1alpha
+Versão 0.1
 
 Para informações sobre licenciamento veja o arquivo COPYRIGHT.
 ________________________________________________________________________________
@@ -18,7 +18,7 @@ ________________________________________________________________________________
 
 § 2. Como utilizar?
 
-Para utilizar o Rubye é necessario ter o Ruby (<=versão 1.8.x) instalado além de
+Para utilizar o Rubye é necessario ter o Ruby (>=versão 1.8.x) instalado além de
 ter também instalado o ruby-gnome2 que pode ser obtido no seguinte endereço:
 
 - http://ruby-gnome2.sourceforge.jp/
