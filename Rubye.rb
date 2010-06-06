@@ -31,7 +31,7 @@ class RubyeGlade
     @builder = Gtk::Builder.new
     @builder.add_from_file(glade_xml)
     @builder.connect_signals {|handler| method(handler) }     
-    #system("gksu -D 'Rubye' ''")      
+    system('gksu -D "Rubye" ""')      
     load_widgets()    
     @timer= Thread.new {Thread.stop}    
     on_btnAtualTime_clicked(nil)      
