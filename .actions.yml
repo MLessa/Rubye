@@ -1,0 +1,13 @@
+--- 
+- !ruby/object:Acao 
+  comando: halt
+  nome: Desligar o computador
+- !ruby/object:Acao 
+  comando: reboot
+  nome: Reiniciar o computador
+- !ruby/object:Acao 
+  comando: gedit /home/matheus/conkyDisplay
+  nome: test
+- !ruby/object:Acao 
+  comando: apt-get upgrade
+  nome: upgrade

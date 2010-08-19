@@ -7,7 +7,7 @@
 #
 #Main Author: Matheus Lessa #{MLessa}
 #Other collaborators:
-
+ 
 class Acao
  require 'yaml'
  attr_accessor :nome,:comando
